@@ -8,6 +8,7 @@ use App\Http\Controllers\WisdomCardController;
 use App\Http\Controllers\ContentController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ConsultationController;
+use App\Http\Controllers\DashboardController;
 
 // AUTHENTIFICATION
 Route::post('/register', [AuthController::class, 'register']);
@@ -20,6 +21,7 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     // API Profile & Gamification
     Route::get('/profile', [ProfileController::class, 'show']);   // Lihat Profil + Streak
     Route::put('/profile', [ProfileController::class, 'update']); // Edit Profil
+    Route::post('/profile/photo', [ProfileController::class, 'uploadPhoto']);
 
     // API Tracking
     Route::post('/tracking', [DailyTrackingController::class, 'store']); // Setor Data
@@ -37,13 +39,19 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::post('/consultations', [ConsultationController::class, 'store']); // Booking
     Route::get('/consultations', [ConsultationController::class, 'index']); // Riwayat
     Route::put('/consultations/{id}/cancel', [ConsultationController::class, 'cancel']); // Batalkan Booking
+    Route::post('/consultations/{id}/review', [ConsultationController::class, 'review']); // Review Konsultasi
 
 
     // ===== ADMIN DASHBOARD =====
-    Route::prefix('admin')->group(function () {
+    Route::group(['middleware' => ['admin']], function () {
 
-        // API Konsultasi
+        // Dashboard
+        Route::get('/dashboard', [DashboardController::class, 'index']); // Statistik
+
+        // API Consultations
         Route::put('/consultations/{id}/status', [ConsultationController::class, 'updateStatus']); // Approve Booking
+
+
     });
 });
 
