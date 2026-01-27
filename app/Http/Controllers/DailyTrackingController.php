@@ -12,6 +12,8 @@ class DailyTrackingController extends Controller
     {
         // Validasi input
         $fields = $request->validate([
+            'mood' => 'required|string', // Contoh: "Cemas", "Senang"
+            'physical_symptoms' => 'nullable|string', // Contoh: "Pusing", "Nyeri"
             'mood_score' => 'required|integer|min:1|max:5', // Skala 1-5
             'medication_taken' => 'boolean',
             'prayer_completed' => 'boolean',
@@ -24,6 +26,8 @@ class DailyTrackingController extends Controller
         // Kuncinya di sini: $request->user()->id
         // Kita ambil ID otomatis dari Token, jadi gak bisa dipalsukan.
         $tracking = DailyTracking::create([
+            'mood' => $fields['mood'],
+            'physical_symptoms' => $fields['physical_symptoms'] ?? null,
             'user_id' => $request->user()->id,
             'date' => now(), // Otomatis tanggal hari ini
             'mood_score' => $fields['mood_score'],

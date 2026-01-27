@@ -9,5 +9,5 @@ class Expert extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'title', 'category', 'photo', 'is_online', 'fee'];
+    protected $fillable = ['name', 'title', 'category', 'photo', 'is_online', 'fee', 'wa_number'];
 }

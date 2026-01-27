@@ -154,4 +154,45 @@ class ProfileController extends Controller
 
         return response()->json(['message' => 'Gagal upload foto'], 400);
     }
+
+    // 4. Update Administrasi
+    public function updateBio(Request $request)
+    {
+        $user = $request->user();
+
+        $validated = $request->validate([
+            'birth_date' => 'nullable|date',
+            'gender' => 'nullable|in:L,P', // L = Laki, P = Perempuan
+            'address' => 'nullable|string',
+            'phone_number' => 'nullable|string|max:15',
+        ]);
+
+        $user->update($validated);
+
+        return response()->json([
+            'message' => 'Data biodata berhasil diperbarui!',
+            'data' => $user
+        ]);
+    }
+
+    // 5. Update Data Personal (Sahabat)
+    // Fokus: Mengenal User lebih dalam (Hobi, Kesukaan)
+    public function updatePreferences(Request $request)
+    {
+        $user = $request->user();
+
+        $validated = $request->validate([
+            'hobbies' => 'nullable|string',
+            'favorite_foods' => 'nullable|string',
+            'allergies' => 'nullable|string',
+            'health_goals' => 'nullable|string',
+        ]);
+
+        $user->update($validated);
+
+        return response()->json([
+            'message' => 'Terima kasih sudah berbagi cerita! Kami jadi lebih mengenalmu.',
+            'data' => $user
+        ]);
+    }
 }

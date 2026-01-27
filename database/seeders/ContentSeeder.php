@@ -37,6 +37,27 @@ class ContentSeeder extends Seeder
                 'thumbnail' => 'https://via.placeholder.com/640x480.png/0000ff?text=Meditasi',
                 'description' => 'Dengarkan ini sebelum tidur agar rileks.'
             ],
+            [
+                'title' => 'Dzikir Pagi Penenang Hati',
+                'category' => 'Amalan/Ibadah', // Sesuai Mind Map
+                'type' => 'article',
+                'url' => '...',
+                'description' => 'Baca ini saat hati sedang gelisah.'
+            ],
+            [
+                'title' => 'Menu Sarapan Rendah Gula',
+                'category' => 'Pola Makan', // Sesuai Mind Map
+                'type' => 'video',
+                'url' => '...',
+                'description' => 'Cocok untuk menjaga gula darah stabil.'
+            ],
+            [
+                'title' => 'Gerakan Ringan Atasi Nyeri Punggung',
+                'category' => 'Olahraga/Terapi', // Sesuai Mind Map
+                'type' => 'video',
+                'url' => '...',
+                'description' => 'Lakukan 5 menit sebelum tidur.'
+            ]
         ];
 
         foreach ($contents as $content) {

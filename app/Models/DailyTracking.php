@@ -13,7 +13,9 @@ class DailyTracking extends Model
     protected $fillable = [
         'user_id',
         'date',
+        'mood',
         'mood_score',
+        'physical_symptoms',
         'medication_taken',
         'prayer_completed',
         'diet_complied',

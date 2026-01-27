@@ -8,24 +8,8 @@ use App\Models\Consultation;
 
 class ConsultationController extends Controller
 {
-    // 1. Ambil Daftar Expert (Bisa buat halaman pilih dokter)
-    public function getExperts()
-    {
-        $experts = Expert::withCount([
-            'consultations as review_count' => function ($query) {
-                $query->whereNotNull('rating'); // Hitung yang ada ratingnya aja
-            }
-        ])
-            ->withAvg([
-                'consultations as average_rating' => function ($query) {
-                    $query->whereNotNull('rating');
-                }
-            ], 'rating')
-            ->get();
-        return response()->json(['data' => $experts]);
-    }
 
-    // 2. User Booking Jadwal
+    // 1. User Booking Jadwal
     public function store(Request $request)
     {
         $request->validate([
@@ -34,12 +18,16 @@ class ConsultationController extends Controller
             'complaint' => 'required|string|max:500'
         ]);
 
+        $expert = Expert::find($request->expert_id);
+
         $booking = Consultation::create([
             'user_id' => $request->user()->id, // Ambil dari Token
             'expert_id' => $request->expert_id,
             'schedule_date' => $request->schedule_date,
             'complaint' => $request->complaint,
-            'status' => 'pending' // Default nunggu konfirmasi
+            'status' => 'pending',
+            'total_price' => $expert->fee,
+            'payment_status' => 'unpaid'
         ]);
 
         return response()->json([
@@ -48,7 +36,7 @@ class ConsultationController extends Controller
         ], 201);
     }
 
-    // 3. User Lihat Riwayat Konsultasi (My Appointments)
+    // 2. User Lihat Riwayat Konsultasi (My Appointments)
     public function index(Request $request)
     {
         // Ambil data konsultasi milik user + data Expert-nya
@@ -60,7 +48,7 @@ class ConsultationController extends Controller
         return response()->json(['data' => $history]);
     }
 
-    // 4. Update Status (Untuk Admin/Expert menerima pesanan)
+    // 3. Update Status (Untuk Admin/Expert menerima pesanan)
     public function updateStatus(Request $request, $id)
     {
         // Validasi input status
@@ -86,7 +74,7 @@ class ConsultationController extends Controller
         ]);
     }
 
-    // 5. User Membatalkan Pesanan (Cancel Booking)
+    // 4. User Membatalkan Pesanan (Cancel Booking)
     public function cancel(Request $request, $id)
     {
         // Cari konsultasi milik user yang login
@@ -111,7 +99,7 @@ class ConsultationController extends Controller
         ]);
     }
 
-    // 6. User Memberi Review (Hanya jika status 'done')
+    // 5. User Memberi Review (Hanya jika status 'done')
     public function review(Request $request, $id)
     {
         $request->validate([
