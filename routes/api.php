@@ -77,6 +77,11 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
         Route::get('/dashboard', [DashboardController::class, 'index']); // Statistik
         Route::get('/stats/monitoring', [StatisticsController::class, 'riskMonitoring']); // Antisipasi User Kritis
 
+        // API Content
+        Route::post('/contents', [ContentController::class, 'store']);
+        Route::put('/contents/{id}', [ContentController::class, 'update']);
+        Route::delete('/contents/{id}', [ContentController::class, 'destroy']);
+
         // API Consultations
         Route::put('/consultations/{id}/status', [ConsultationController::class, 'updateStatus']); // Approve Booking
         Route::post('/experts', [ExpertController::class, 'store']); // Add Expert

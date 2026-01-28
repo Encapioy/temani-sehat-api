@@ -155,6 +155,15 @@
                                                                                 <li class="tocify-item level-2" data-unique="endpoints-GETapi-stats-monitoring">
                                 <a href="#endpoints-GETapi-stats-monitoring">GET api/stats/monitoring</a>
                             </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-POSTapi-contents">
+                                <a href="#endpoints-POSTapi-contents">POST api/contents</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-PUTapi-contents--id-">
+                                <a href="#endpoints-PUTapi-contents--id-">PUT api/contents/{id}</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-DELETEapi-contents--id-">
+                                <a href="#endpoints-DELETEapi-contents--id-">DELETE api/contents/{id}</a>
+                            </li>
                                                                                 <li class="tocify-item level-2" data-unique="endpoints-PUTapi-consultations--id--status">
                                 <a href="#endpoints-PUTapi-consultations--id--status">PUT api/consultations/{id}/status</a>
                             </li>
@@ -187,7 +196,7 @@
     </ul>
 
     <ul class="toc-footer" id="last-updated">
-        <li>Last updated: January 27, 2026</li>
+        <li>Last updated: January 28, 2026</li>
     </ul>
 </div>
 
@@ -955,7 +964,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"birth_date\": \"2026-01-27T04:40:27\",
+    \"birth_date\": \"2026-01-28T03:35:01\",
     \"gender\": \"P\",
     \"address\": \"consequatur\",
     \"phone_number\": \"mqeopfuudtdsu\"
@@ -974,7 +983,7 @@ const headers = {
 };
 
 let body = {
-    "birth_date": "2026-01-27T04:40:27",
+    "birth_date": "2026-01-28T03:35:01",
     "gender": "P",
     "address": "consequatur",
     "phone_number": "mqeopfuudtdsu"
@@ -1069,10 +1078,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="birth_date"                data-endpoint="PUTapi-profile-bio"
-               value="2026-01-27T04:40:27"
+               value="2026-01-28T03:35:01"
                data-component="body">
     <br>
-<p>Must be a valid date. Example: <code>2026-01-27T04:40:27</code></p>
+<p>Must be a valid date. Example: <code>2026-01-28T03:35:01</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>gender</code></b>&nbsp;&nbsp;
@@ -1304,7 +1313,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     "https://nondeprecatively-overdiligent-sonja.ngrok-free.dev/api/profile/photo" \
     --header "Content-Type: multipart/form-data" \
     --header "Accept: application/json" \
-    --form "photo=@C:\Users\DELL\AppData\Local\Temp\php6C36.tmp" </code></pre></div>
+    --form "photo=@C:\Users\DELL\AppData\Local\Temp\phpF96F.tmp" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -1412,7 +1421,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value=""
                data-component="body">
     <br>
-<p>Must be an image. Must not be greater than 2048 kilobytes. Example: <code>C:\Users\DELL\AppData\Local\Temp\php6C36.tmp</code></p>
+<p>Must be an image. Must not be greater than 2048 kilobytes. Example: <code>C:\Users\DELL\AppData\Local\Temp\phpF96F.tmp</code></p>
         </div>
         </form>
 
@@ -2599,7 +2608,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Accept: application/json" \
     --data "{
     \"expert_id\": \"consequatur\",
-    \"schedule_date\": \"2107-02-25\",
+    \"schedule_date\": \"2107-02-26\",
     \"complaint\": \"mqeopfuudtdsufvyvddqa\"
 }"
 </code></pre></div>
@@ -2617,7 +2626,7 @@ const headers = {
 
 let body = {
     "expert_id": "consequatur",
-    "schedule_date": "2107-02-25",
+    "schedule_date": "2107-02-26",
     "complaint": "mqeopfuudtdsufvyvddqa"
 };
 
@@ -2722,10 +2731,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="schedule_date"                data-endpoint="POSTapi-consultations"
-               value="2107-02-25"
+               value="2107-02-26"
                data-component="body">
     <br>
-<p>Must be a valid date. Must be a date after <code>now</code>. Example: <code>2107-02-25</code></p>
+<p>Must be a valid date. Must be a date after <code>now</code>. Example: <code>2107-02-26</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>complaint</code></b>&nbsp;&nbsp;
@@ -3881,7 +3890,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     "https://nondeprecatively-overdiligent-sonja.ngrok-free.dev/api/orders/consequatur/pay" \
     --header "Content-Type: multipart/form-data" \
     --header "Accept: application/json" \
-    --form "payment_proof=@C:\Users\DELL\AppData\Local\Temp\php6E1D.tmp" </code></pre></div>
+    --form "payment_proof=@C:\Users\DELL\AppData\Local\Temp\phpFFEA.tmp" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -4002,7 +4011,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value=""
                data-component="body">
     <br>
-<p>Must be an image. Must not be greater than 2048 kilobytes. Example: <code>C:\Users\DELL\AppData\Local\Temp\php6E1D.tmp</code></p>
+<p>Must be an image. Must not be greater than 2048 kilobytes. Example: <code>C:\Users\DELL\AppData\Local\Temp\phpFFEA.tmp</code></p>
         </div>
         </form>
 
@@ -4257,6 +4266,498 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <p>Example: <code>application/json</code></p>
             </div>
                         </form>
+
+                    <h2 id="endpoints-POSTapi-contents">POST api/contents</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-POSTapi-contents">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "https://nondeprecatively-overdiligent-sonja.ngrok-free.dev/api/contents" \
+    --header "Content-Type: multipart/form-data" \
+    --header "Accept: application/json" \
+    --form "title=consequatur"\
+    --form "type=video"\
+    --form "category=consequatur"\
+    --form "thumbnail=@C:\Users\DELL\AppData\Local\Temp\php59.tmp" </code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "https://nondeprecatively-overdiligent-sonja.ngrok-free.dev/api/contents"
+);
+
+const headers = {
+    "Content-Type": "multipart/form-data",
+    "Accept": "application/json",
+};
+
+const body = new FormData();
+body.append('title', 'consequatur');
+body.append('type', 'video');
+body.append('category', 'consequatur');
+body.append('thumbnail', document.querySelector('input[name="thumbnail"]').files[0]);
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-contents">
+</span>
+<span id="execution-results-POSTapi-contents" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-contents"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-contents"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-POSTapi-contents" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-contents">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-POSTapi-contents" data-method="POST"
+      data-path="api/contents"
+      data-authed="0"
+      data-hasfiles="1"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-contents', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-contents"
+                    onclick="tryItOut('POSTapi-contents');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-contents"
+                    onclick="cancelTryOut('POSTapi-contents');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-contents"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/contents</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="POSTapi-contents"
+               value="multipart/form-data"
+               data-component="header">
+    <br>
+<p>Example: <code>multipart/form-data</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="POSTapi-contents"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>title</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="title"                data-endpoint="POSTapi-contents"
+               value="consequatur"
+               data-component="body">
+    <br>
+<p>Example: <code>consequatur</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>type</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="type"                data-endpoint="POSTapi-contents"
+               value="video"
+               data-component="body">
+    <br>
+<p>Example: <code>video</code></p>
+Must be one of:
+<ul style="list-style-type: square;"><li><code>article</code></li> <li><code>video</code></li></ul>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>category</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="category"                data-endpoint="POSTapi-contents"
+               value="consequatur"
+               data-component="body">
+    <br>
+<p>Example: <code>consequatur</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>body</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="body"                data-endpoint="POSTapi-contents"
+               value=""
+               data-component="body">
+    <br>
+<p>Validasi Bersyarat:
+Kalau tipe-nya article, body WAJIB diisi.
+Kalau tipe-nya video, url WAJIB diisi. This field is required when <code>type</code> is <code>article</code>.</p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>url</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="url"                data-endpoint="POSTapi-contents"
+               value=""
+               data-component="body">
+    <br>
+<p>This field is required when <code>type</code> is <code>video</code>.</p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>thumbnail</code></b>&nbsp;&nbsp;
+<small>file</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="file" style="display: none"
+                              name="thumbnail"                data-endpoint="POSTapi-contents"
+               value=""
+               data-component="body">
+    <br>
+<p>Must be an image. Must not be greater than 2048 kilobytes. Example: <code>C:\Users\DELL\AppData\Local\Temp\php59.tmp</code></p>
+        </div>
+        </form>
+
+                    <h2 id="endpoints-PUTapi-contents--id-">PUT api/contents/{id}</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-PUTapi-contents--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request PUT \
+    "https://nondeprecatively-overdiligent-sonja.ngrok-free.dev/api/contents/consequatur" \
+    --header "Content-Type: multipart/form-data" \
+    --header "Accept: application/json" \
+    --form "title=consequatur"\
+    --form "type=video"\
+    --form "thumbnail=@C:\Users\DELL\AppData\Local\Temp\php5A.tmp" </code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "https://nondeprecatively-overdiligent-sonja.ngrok-free.dev/api/contents/consequatur"
+);
+
+const headers = {
+    "Content-Type": "multipart/form-data",
+    "Accept": "application/json",
+};
+
+const body = new FormData();
+body.append('title', 'consequatur');
+body.append('type', 'video');
+body.append('thumbnail', document.querySelector('input[name="thumbnail"]').files[0]);
+
+fetch(url, {
+    method: "PUT",
+    headers,
+    body,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-PUTapi-contents--id-">
+</span>
+<span id="execution-results-PUTapi-contents--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-PUTapi-contents--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-PUTapi-contents--id-"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-PUTapi-contents--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-PUTapi-contents--id-">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-PUTapi-contents--id-" data-method="PUT"
+      data-path="api/contents/{id}"
+      data-authed="0"
+      data-hasfiles="1"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('PUTapi-contents--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-PUTapi-contents--id-"
+                    onclick="tryItOut('PUTapi-contents--id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-PUTapi-contents--id-"
+                    onclick="cancelTryOut('PUTapi-contents--id-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-PUTapi-contents--id-"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-darkblue">PUT</small>
+            <b><code>api/contents/{id}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="PUTapi-contents--id-"
+               value="multipart/form-data"
+               data-component="header">
+    <br>
+<p>Example: <code>multipart/form-data</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="PUTapi-contents--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="id"                data-endpoint="PUTapi-contents--id-"
+               value="consequatur"
+               data-component="url">
+    <br>
+<p>The ID of the content. Example: <code>consequatur</code></p>
+            </div>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>title</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="title"                data-endpoint="PUTapi-contents--id-"
+               value="consequatur"
+               data-component="body">
+    <br>
+<p>Example: <code>consequatur</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>type</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="type"                data-endpoint="PUTapi-contents--id-"
+               value="video"
+               data-component="body">
+    <br>
+<p>Example: <code>video</code></p>
+Must be one of:
+<ul style="list-style-type: square;"><li><code>article</code></li> <li><code>video</code></li></ul>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>thumbnail</code></b>&nbsp;&nbsp;
+<small>file</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="file" style="display: none"
+                              name="thumbnail"                data-endpoint="PUTapi-contents--id-"
+               value=""
+               data-component="body">
+    <br>
+<p>Must be an image. Must not be greater than 2048 kilobytes. Example: <code>C:\Users\DELL\AppData\Local\Temp\php5A.tmp</code></p>
+        </div>
+        </form>
+
+                    <h2 id="endpoints-DELETEapi-contents--id-">DELETE api/contents/{id}</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-DELETEapi-contents--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request DELETE \
+    "https://nondeprecatively-overdiligent-sonja.ngrok-free.dev/api/contents/consequatur" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "https://nondeprecatively-overdiligent-sonja.ngrok-free.dev/api/contents/consequatur"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "DELETE",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-DELETEapi-contents--id-">
+</span>
+<span id="execution-results-DELETEapi-contents--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-DELETEapi-contents--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-DELETEapi-contents--id-"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-DELETEapi-contents--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-DELETEapi-contents--id-">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-DELETEapi-contents--id-" data-method="DELETE"
+      data-path="api/contents/{id}"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('DELETEapi-contents--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-DELETEapi-contents--id-"
+                    onclick="tryItOut('DELETEapi-contents--id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-DELETEapi-contents--id-"
+                    onclick="cancelTryOut('DELETEapi-contents--id-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-DELETEapi-contents--id-"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-red">DELETE</small>
+            <b><code>api/contents/{id}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="DELETEapi-contents--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="DELETEapi-contents--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="id"                data-endpoint="DELETEapi-contents--id-"
+               value="consequatur"
+               data-component="url">
+    <br>
+<p>The ID of the content. Example: <code>consequatur</code></p>
+            </div>
+                    </form>
 
                     <h2 id="endpoints-PUTapi-consultations--id--status">PUT api/consultations/{id}/status</h2>
 
@@ -4874,7 +5375,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --form "price=17"\
     --form "stock=17"\
     --form "description=Dolores dolorum amet iste laborum eius est dolor."\
-    --form "image=@C:\Users\DELL\AppData\Local\Temp\php6E3D.tmp" </code></pre></div>
+    --form "image=@C:\Users\DELL\AppData\Local\Temp\php6B.tmp" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -5047,7 +5548,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value=""
                data-component="body">
     <br>
-<p>Ubah jadi 'image' dan batasi tipe file (jpg, png) serta ukuran (max 2MB). Must be an image. Must not be greater than 2048 kilobytes. Example: <code>C:\Users\DELL\AppData\Local\Temp\php6E3D.tmp</code></p>
+<p>Ubah jadi 'image' dan batasi tipe file (jpg, png) serta ukuran (max 2MB). Must be an image. Must not be greater than 2048 kilobytes. Example: <code>C:\Users\DELL\AppData\Local\Temp\php6B.tmp</code></p>
         </div>
         </form>
 

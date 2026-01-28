@@ -16,6 +16,7 @@ class Content extends Model
         'thumbnail',
         'category',
         'duration',
-        'description'
+        'description',
+        'body'
     ];
 }
