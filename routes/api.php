@@ -35,6 +35,7 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     // API Tracking
     Route::post('/tracking', [DailyTrackingController::class, 'store']); // Setor Data
     Route::get('/tracking', [DailyTrackingController::class, 'index']);  // Lihat Data
+    Route::get('/tracking/weekly', [DailyTrackingController::class, 'weeklyStatistic']);
 
     // API Fitur Pendampingan Cerdas
     Route::get('/recommendations/daily', [RecommendationController::class, 'getDailyRecommendation']);
