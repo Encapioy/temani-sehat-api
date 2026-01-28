@@ -15,7 +15,7 @@ class DatabaseSeeder extends Seeder
     {
         User::create([
             'name' => 'Admin Temani Sehat',
-            'email' => 'admin@temanisehat.com',
+            'email' => 'adminkuasa@temanisehat.com',
             'password' => bcrypt('admin123'), // Password wajib di-encrypt
             'role' => 'admin',
             'phone_number' => '081234567890',

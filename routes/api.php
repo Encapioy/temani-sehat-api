@@ -90,6 +90,7 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
 
         // API Product
         Route::post('/products', [ProductController::class, 'store']);
+        Route::post('/products/{id}', [ProductController::class, 'update']);
         Route::delete('/products/{id}', [ProductController::class, 'destroy']);
 
         // API Transaksi

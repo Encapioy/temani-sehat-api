@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Product;
+use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
 {
@@ -68,7 +69,63 @@ class ProductController extends Controller
         ]);
     }
 
-    // 3. Hapus Produk (Khusus Admin)
+    // 3. Update Produk (Edit Data & Ganti Gambar)
+    public function update(Request $request, $id)
+    {
+        // A. Cari Produknya
+        $product = Product::find($id);
+        if (!$product) {
+            return response()->json(['message' => 'Produk tidak ditemukan'], 404);
+        }
+
+        // B. Validasi (Gunakan 'sometimes' agar user tidak wajib isi semua)
+        // Jadi kalau cuma mau ganti harga, nama gak usah dikirim gak apa-apa.
+        $request->validate([
+            'name' => 'sometimes|string',
+            'category' => 'sometimes|string',
+            'price' => 'sometimes|integer',
+            'stock' => 'sometimes|integer',
+            'description' => 'nullable|string',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg|max:2048' // Validasi Foto
+        ]);
+
+        // C. Ambil semua data inputan KECUALI image
+        // Kita urus image secara manual di bawah
+        $data = $request->except('image');
+
+        // D. Cek apakah Admin upload gambar baru?
+        if ($request->hasFile('image')) {
+
+            // 1. HAPUS GAMBAR LAMA (Jika ada)
+            // Biar server kamu gak penuh sampah file tak terpakai
+            if ($product->image_url) {
+                // Kita harus ubah URL lengkap menjadi path relatif
+                // Contoh: "http://localhost:8000/storage/products/abc.jpg"
+                // Menjadi: "products/abc.jpg"
+                $oldPath = str_replace(url('storage/'), '', $product->image_url);
+
+                // Hapus fisik filenya
+                Storage::disk('public')->delete($oldPath);
+            }
+
+            // 2. UPLOAD GAMBAR BARU
+            $file = $request->file('image');
+            $path = $file->store('products', 'public');
+
+            // 3. Masukkan URL baru ke array data
+            $data['image_url'] = url('storage/' . $path);
+        }
+
+        // E. Update ke Database
+        $product->update($data);
+
+        return response()->json([
+            'message' => 'Produk berhasil diperbarui!',
+            'data' => $product
+        ]);
+    }
+
+    // 4. Hapus Produk (Khusus Admin)
     public function destroy($id)
     {
         $product = Product::find($id);

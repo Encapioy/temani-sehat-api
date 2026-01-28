@@ -10,4 +10,10 @@ class Expert extends Model
     use HasFactory;
 
     protected $fillable = ['name', 'title', 'category', 'photo', 'is_online', 'fee', 'wa_number'];
+
+    public function consultations()
+    {
+        // Pastikan Model 'Consultation' sudah ada ya!
+        return $this->hasMany(Consultation::class);
+    }
 }

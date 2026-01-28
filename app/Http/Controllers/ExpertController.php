@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Expert;
+use Illuminate\Support\Facades\Storage;
 
 class ExpertController extends Controller
 {
@@ -38,33 +39,80 @@ class ExpertController extends Controller
     // 2. Tambah Expert Baru (Khusus Admin)
     public function store(Request $request)
     {
+        // A. Validasi
         $fields = $request->validate([
             'name' => 'required|string',
-            'title' => 'required|string',   // Contoh: Sp.GK (Spesialis Gizi)
-            'category' => 'required|string', // Isi: Dokter, Ahli Gizi, Admin, dll
+            'title' => 'required|string',
+            'category' => 'required|string',
             'fee' => 'required|integer',
-            'wa_number' => 'required|string|starts_with:62', // Format 628xxx
-            'photo' => 'nullable|string' // Nanti bisa dikembangin upload foto
+            'wa_number' => 'required|string|starts_with:62',
+            // Ubah validasi foto jadi file image
+            'photo' => 'nullable|image|mimes:jpeg,png,jpg|max:2048'
         ]);
 
+        // B. Logika Upload Foto
+        if ($request->hasFile('photo')) {
+            $file = $request->file('photo');
+            // Simpan ke folder 'experts' di public
+            $path = $file->store('experts', 'public');
+            // Masukkan URL lengkap ke array $fields
+            $fields['photo'] = url('storage/' . $path);
+        }
+
+        // C. Simpan ke Database
         $expert = Expert::create($fields);
 
         return response()->json([
             'message' => 'Data Konsultan berhasil ditambahkan!',
             'data' => $expert
-        ]);
+        ], 201);
     }
 
-    // 3. Update Expert (Misal ganti nomor WA)
+    // 4. Update Expert (Ganti Foto & Hapus Foto Lama)
     public function update(Request $request, $id)
     {
         $expert = Expert::find($id);
         if (!$expert)
             return response()->json(['message' => 'Not Found'], 404);
 
-        $expert->update($request->all());
+        // A. Validasi (Semua nullable karena update)
+        $request->validate([
+            'name' => 'string',
+            'title' => 'string',
+            'category' => 'string',
+            'fee' => 'integer',
+            'wa_number' => 'string',
+            'photo' => 'nullable|image|mimes:jpeg,png,jpg|max:2048'
+        ]);
 
-        return response()->json(['message' => 'Data berhasil diupdate', 'data' => $expert]);
+        // B. Ambil data inputan (kecuali foto dulu)
+        $data = $request->except('photo');
+
+        // C. Cek apakah ada upload foto baru?
+        if ($request->hasFile('photo')) {
+            // 1. HAPUS FOTO LAMA (Penting! Biar server gak penuh sampah)
+            if ($expert->photo) {
+                // Trik mengubah URL lengkap balik jadi path relatif
+                // Contoh: "http://localhost/storage/experts/abc.jpg" -> "experts/abc.jpg"
+                $oldPath = str_replace(url('storage/'), '', $expert->photo);
+                Storage::disk('public')->delete($oldPath);
+            }
+
+            // 2. Upload Foto Baru
+            $file = $request->file('photo');
+            $path = $file->store('experts', 'public');
+
+            // 3. Masukkan ke array data update
+            $data['photo'] = url('storage/' . $path);
+        }
+
+        // D. Update Database
+        $expert->update($data);
+
+        return response()->json([
+            'message' => 'Data berhasil diupdate',
+            'data' => $expert
+        ]);
     }
 
     // 4. Hapus Expert (Khusus Admin)
