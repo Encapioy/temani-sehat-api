@@ -9,7 +9,9 @@ use Illuminate\Support\Facades\DB; // Wajib buat transaksi database
 
 class OrderController extends Controller
 {
-    // 1. Checkout (Beli Barang)
+    // =========================================================================
+    // 1. USER: Checkout (Beli Barang)
+    // =========================================================================
     public function checkout(Request $request)
     {
         $request->validate([
@@ -94,10 +96,12 @@ class OrderController extends Controller
         }
     }
 
-    // 2. Lihat Riwayat Pesanan Saya
+    // =========================================================================
+    // 2. USER: Lihat Riwayat Pesanan Saya
+    // =========================================================================
     public function myOrders(Request $request)
     {
-        $orders = Order::with('items.product') // Ambil data relasinya juga
+        $orders = Order::with('items.product') // Ambil data relasi produk
             ->where('user_id', $request->user()->id)
             ->orderBy('created_at', 'desc')
             ->get();
@@ -105,7 +109,9 @@ class OrderController extends Controller
         return response()->json(['data' => $orders]);
     }
 
-    // 3. User Upload Bukti Bayar 📸
+    // =========================================================================
+    // 3. USER: Upload Bukti Bayar 📸
+    // =========================================================================
     public function uploadPaymentProof(Request $request, $id)
     {
         $order = Order::find($id);
@@ -145,7 +151,39 @@ class OrderController extends Controller
         return response()->json(['message' => 'Gagal upload file.'], 500);
     }
 
-    // 4. Admin Update Status (Verifikasi/Kirim Barang) 👮‍♂️
+    // =========================================================================
+    // 4. ADMIN: Lihat Semua Daftar Pesanan Masuk (List Produk yang di-Order)
+    // =========================================================================
+    public function getAllOrders(Request $request)
+    {
+        // 1. Cek Hak Akses (Wajib Admin)
+        if ($request->user()->role !== 'admin') {
+            return response()->json(['message' => 'Unauthorized. Hanya Admin yang boleh akses.'], 403);
+        }
+
+        // 2. Ambil Data Order
+        // Kita gunakan 'with' agar data User (siapa yg beli) dan Items (barang apa yg dibeli) ikut terambil
+        $orders = Order::with(['user:id,name,email', 'items.product'])
+            ->orderBy('created_at', 'desc');
+
+        // 3. Filter (Opsional)
+        // Contoh: ?status=pending (hanya tampilkan yg belum bayar)
+        if ($request->has('status')) {
+            $orders->where('status', $request->status);
+        }
+
+        // 4. Gunakan Pagination biar ringan kalau datanya ribuan
+        $data = $orders->paginate(10); 
+
+        return response()->json([
+            'message' => 'Daftar semua pesanan berhasil diambil',
+            'data' => $data
+        ]);
+    }
+
+    // =========================================================================
+    // 5. ADMIN: Update Status (Verifikasi/Kirim Barang) 👮‍♂️
+    // =========================================================================
     public function updateStatus(Request $request, $id)
     {
         // Cek apakah yang akses adalah ADMIN
