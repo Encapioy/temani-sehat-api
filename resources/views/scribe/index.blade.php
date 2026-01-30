@@ -104,6 +104,9 @@
                                                                                 <li class="tocify-item level-2" data-unique="endpoints-GETapi-tracking">
                                 <a href="#endpoints-GETapi-tracking">GET api/tracking</a>
                             </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-GETapi-tracking-weekly">
+                                <a href="#endpoints-GETapi-tracking-weekly">GET api/tracking/weekly</a>
+                            </li>
                                                                                 <li class="tocify-item level-2" data-unique="endpoints-GETapi-recommendations-daily">
                                 <a href="#endpoints-GETapi-recommendations-daily">GET api/recommendations/daily</a>
                             </li>
@@ -179,8 +182,14 @@
                                                                                 <li class="tocify-item level-2" data-unique="endpoints-POSTapi-products">
                                 <a href="#endpoints-POSTapi-products">POST api/products</a>
                             </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-POSTapi-products--id-">
+                                <a href="#endpoints-POSTapi-products--id-">POST api/products/{id}</a>
+                            </li>
                                                                                 <li class="tocify-item level-2" data-unique="endpoints-DELETEapi-products--id-">
                                 <a href="#endpoints-DELETEapi-products--id-">DELETE api/products/{id}</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-GETapi-orders">
+                                <a href="#endpoints-GETapi-orders">GET api/orders</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="endpoints-PATCHapi-orders--id--status">
                                 <a href="#endpoints-PATCHapi-orders--id--status">PATCH api/orders/{id}/status</a>
@@ -964,7 +973,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"birth_date\": \"2026-01-28T03:35:01\",
+    \"birth_date\": \"2026-01-28T17:10:11\",
     \"gender\": \"P\",
     \"address\": \"consequatur\",
     \"phone_number\": \"mqeopfuudtdsu\"
@@ -983,7 +992,7 @@ const headers = {
 };
 
 let body = {
-    "birth_date": "2026-01-28T03:35:01",
+    "birth_date": "2026-01-28T17:10:11",
     "gender": "P",
     "address": "consequatur",
     "phone_number": "mqeopfuudtdsu"
@@ -1078,10 +1087,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="birth_date"                data-endpoint="PUTapi-profile-bio"
-               value="2026-01-28T03:35:01"
+               value="2026-01-28T17:10:11"
                data-component="body">
     <br>
-<p>Must be a valid date. Example: <code>2026-01-28T03:35:01</code></p>
+<p>Must be a valid date. Example: <code>2026-01-28T17:10:11</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>gender</code></b>&nbsp;&nbsp;
@@ -1313,7 +1322,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     "https://nondeprecatively-overdiligent-sonja.ngrok-free.dev/api/profile/photo" \
     --header "Content-Type: multipart/form-data" \
     --header "Accept: application/json" \
-    --form "photo=@C:\Users\DELL\AppData\Local\Temp\phpF96F.tmp" </code></pre></div>
+    --form "photo=@C:\Users\DELL\AppData\Local\Temp\php4476.tmp" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -1421,7 +1430,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value=""
                data-component="body">
     <br>
-<p>Must be an image. Must not be greater than 2048 kilobytes. Example: <code>C:\Users\DELL\AppData\Local\Temp\phpF96F.tmp</code></p>
+<p>Must be an image. Must not be greater than 2048 kilobytes. Example: <code>C:\Users\DELL\AppData\Local\Temp\php4476.tmp</code></p>
         </div>
         </form>
 
@@ -1705,7 +1714,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value="consequatur"
                data-component="body">
     <br>
-<p>Contoh: &quot;Cemas&quot;, &quot;Senang&quot;. Example: <code>consequatur</code></p>
+<p>Example: <code>consequatur</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>mood_score</code></b>&nbsp;&nbsp;
@@ -1717,7 +1726,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value="3"
                data-component="body">
     <br>
-<p>Contoh: &quot;Pusing&quot;, &quot;Nyeri&quot;. Must be at least 1. Must not be greater than 5. Example: <code>3</code></p>
+<p>Must be at least 1. Must not be greater than 5. Example: <code>3</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>medication_taken</code></b>&nbsp;&nbsp;
@@ -1739,7 +1748,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             <code>false</code>
         </label>
     <br>
-<p>Skala 1-5. Example: <code>true</code></p>
+<p>Example: <code>true</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>prayer_completed</code></b>&nbsp;&nbsp;
@@ -1940,6 +1949,132 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="Accept"                data-endpoint="GETapi-tracking"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        </form>
+
+                    <h2 id="endpoints-GETapi-tracking-weekly">GET api/tracking/weekly</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-GETapi-tracking-weekly">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "https://nondeprecatively-overdiligent-sonja.ngrok-free.dev/api/tracking/weekly" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "https://nondeprecatively-overdiligent-sonja.ngrok-free.dev/api/tracking/weekly"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-tracking-weekly">
+            <blockquote>
+            <p>Example response (401):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+access-control-allow-origin: *
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;Unauthenticated.&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-tracking-weekly" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-tracking-weekly"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-tracking-weekly"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-tracking-weekly" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-tracking-weekly">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-GETapi-tracking-weekly" data-method="GET"
+      data-path="api/tracking/weekly"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-tracking-weekly', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-tracking-weekly"
+                    onclick="tryItOut('GETapi-tracking-weekly');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-tracking-weekly"
+                    onclick="cancelTryOut('GETapi-tracking-weekly');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-tracking-weekly"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/tracking/weekly</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-tracking-weekly"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-tracking-weekly"
                value="application/json"
                data-component="header">
     <br>
@@ -2608,7 +2743,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Accept: application/json" \
     --data "{
     \"expert_id\": \"consequatur\",
-    \"schedule_date\": \"2107-02-26\",
+    \"schedule_date\": \"2107-02-27\",
     \"complaint\": \"mqeopfuudtdsufvyvddqa\"
 }"
 </code></pre></div>
@@ -2626,7 +2761,7 @@ const headers = {
 
 let body = {
     "expert_id": "consequatur",
-    "schedule_date": "2107-02-26",
+    "schedule_date": "2107-02-27",
     "complaint": "mqeopfuudtdsufvyvddqa"
 };
 
@@ -2731,10 +2866,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="schedule_date"                data-endpoint="POSTapi-consultations"
-               value="2107-02-26"
+               value="2107-02-27"
                data-component="body">
     <br>
-<p>Must be a valid date. Must be a date after <code>now</code>. Example: <code>2107-02-26</code></p>
+<p>Must be a valid date. Must be a date after <code>now</code>. Example: <code>2107-02-27</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>complaint</code></b>&nbsp;&nbsp;
@@ -3890,7 +4025,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     "https://nondeprecatively-overdiligent-sonja.ngrok-free.dev/api/orders/consequatur/pay" \
     --header "Content-Type: multipart/form-data" \
     --header "Accept: application/json" \
-    --form "payment_proof=@C:\Users\DELL\AppData\Local\Temp\phpFFEA.tmp" </code></pre></div>
+    --form "payment_proof=@C:\Users\DELL\AppData\Local\Temp\php487F.tmp" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -4011,7 +4146,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value=""
                data-component="body">
     <br>
-<p>Must be an image. Must not be greater than 2048 kilobytes. Example: <code>C:\Users\DELL\AppData\Local\Temp\phpFFEA.tmp</code></p>
+<p>Must be an image. Must not be greater than 2048 kilobytes. Example: <code>C:\Users\DELL\AppData\Local\Temp\php487F.tmp</code></p>
         </div>
         </form>
 
@@ -4286,7 +4421,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --form "title=consequatur"\
     --form "type=video"\
     --form "category=consequatur"\
-    --form "thumbnail=@C:\Users\DELL\AppData\Local\Temp\php59.tmp" </code></pre></div>
+    --form "thumbnail=@C:\Users\DELL\AppData\Local\Temp\php48CF.tmp" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -4461,7 +4596,7 @@ Kalau tipe-nya video, url WAJIB diisi. This field is required when <code>type</c
                value=""
                data-component="body">
     <br>
-<p>Must be an image. Must not be greater than 2048 kilobytes. Example: <code>C:\Users\DELL\AppData\Local\Temp\php59.tmp</code></p>
+<p>Must be an image. Must not be greater than 2048 kilobytes. Example: <code>C:\Users\DELL\AppData\Local\Temp\php48CF.tmp</code></p>
         </div>
         </form>
 
@@ -4483,7 +4618,7 @@ Kalau tipe-nya video, url WAJIB diisi. This field is required when <code>type</c
     --header "Accept: application/json" \
     --form "title=consequatur"\
     --form "type=video"\
-    --form "thumbnail=@C:\Users\DELL\AppData\Local\Temp\php5A.tmp" </code></pre></div>
+    --form "thumbnail=@C:\Users\DELL\AppData\Local\Temp\php48D0.tmp" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -4632,7 +4767,7 @@ Must be one of:
                value=""
                data-component="body">
     <br>
-<p>Must be an image. Must not be greater than 2048 kilobytes. Example: <code>C:\Users\DELL\AppData\Local\Temp\php5A.tmp</code></p>
+<p>Must be an image. Must not be greater than 2048 kilobytes. Example: <code>C:\Users\DELL\AppData\Local\Temp\php48D0.tmp</code></p>
         </div>
         </form>
 
@@ -4920,17 +5055,14 @@ Must be one of:
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
     "https://nondeprecatively-overdiligent-sonja.ngrok-free.dev/api/experts" \
-    --header "Content-Type: application/json" \
+    --header "Content-Type: multipart/form-data" \
     --header "Accept: application/json" \
-    --data "{
-    \"name\": \"consequatur\",
-    \"title\": \"consequatur\",
-    \"category\": \"consequatur\",
-    \"fee\": 17,
-    \"wa_number\": \"62vmqe\",
-    \"photo\": \"consequatur\"
-}"
-</code></pre></div>
+    --form "name=consequatur"\
+    --form "title=consequatur"\
+    --form "category=consequatur"\
+    --form "fee=17"\
+    --form "wa_number=62vmqe"\
+    --form "photo=@C:\Users\DELL\AppData\Local\Temp\php48E1.tmp" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -4939,23 +5071,22 @@ Must be one of:
 );
 
 const headers = {
-    "Content-Type": "application/json",
+    "Content-Type": "multipart/form-data",
     "Accept": "application/json",
 };
 
-let body = {
-    "name": "consequatur",
-    "title": "consequatur",
-    "category": "consequatur",
-    "fee": 17,
-    "wa_number": "62vmqe",
-    "photo": "consequatur"
-};
+const body = new FormData();
+body.append('name', 'consequatur');
+body.append('title', 'consequatur');
+body.append('category', 'consequatur');
+body.append('fee', '17');
+body.append('wa_number', '62vmqe');
+body.append('photo', document.querySelector('input[name="photo"]').files[0]);
 
 fetch(url, {
     method: "POST",
     headers,
-    body: JSON.stringify(body),
+    body,
 }).then(response =&gt; response.json());</code></pre></div>
 
 </span>
@@ -4980,7 +5111,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <form id="form-POSTapi-experts" data-method="POST"
       data-path="api/experts"
       data-authed="0"
-      data-hasfiles="0"
+      data-hasfiles="1"
       data-isarraybody="0"
       autocomplete="off"
       onsubmit="event.preventDefault(); executeTryOut('POSTapi-experts', this);">
@@ -5016,10 +5147,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="Content-Type"                data-endpoint="POSTapi-experts"
-               value="application/json"
+               value="multipart/form-data"
                data-component="header">
     <br>
-<p>Example: <code>application/json</code></p>
+<p>Example: <code>multipart/form-data</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
@@ -5068,7 +5199,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value="consequatur"
                data-component="body">
     <br>
-<p>Contoh: Sp.GK (Spesialis Gizi). Example: <code>consequatur</code></p>
+<p>Example: <code>consequatur</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>fee</code></b>&nbsp;&nbsp;
@@ -5080,7 +5211,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value="17"
                data-component="body">
     <br>
-<p>Isi: Dokter, Ahli Gizi, Admin, dll. Example: <code>17</code></p>
+<p>Example: <code>17</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>wa_number</code></b>&nbsp;&nbsp;
@@ -5096,15 +5227,15 @@ You can check the Dev Tools console for debugging information.</code></pre>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>photo</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
+<small>file</small>&nbsp;
 <i>optional</i> &nbsp;
  &nbsp;
-                <input type="text" style="display: none"
+                <input type="file" style="display: none"
                               name="photo"                data-endpoint="POSTapi-experts"
-               value="consequatur"
+               value=""
                data-component="body">
     <br>
-<p>Format 628xxx. Example: <code>consequatur</code></p>
+<p>Ubah validasi foto jadi file image. Must be an image. Must not be greater than 2048 kilobytes. Example: <code>C:\Users\DELL\AppData\Local\Temp\php48E1.tmp</code></p>
         </div>
         </form>
 
@@ -5122,8 +5253,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
     "https://nondeprecatively-overdiligent-sonja.ngrok-free.dev/api/experts/consequatur" \
-    --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
+    --header "Content-Type: multipart/form-data" \
+    --header "Accept: application/json" \
+    --form "name=consequatur"\
+    --form "title=consequatur"\
+    --form "category=consequatur"\
+    --form "fee=17"\
+    --form "wa_number=consequatur"\
+    --form "photo=@C:\Users\DELL\AppData\Local\Temp\php48F2.tmp" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -5132,13 +5269,22 @@ You can check the Dev Tools console for debugging information.</code></pre>
 );
 
 const headers = {
-    "Content-Type": "application/json",
+    "Content-Type": "multipart/form-data",
     "Accept": "application/json",
 };
+
+const body = new FormData();
+body.append('name', 'consequatur');
+body.append('title', 'consequatur');
+body.append('category', 'consequatur');
+body.append('fee', '17');
+body.append('wa_number', 'consequatur');
+body.append('photo', document.querySelector('input[name="photo"]').files[0]);
 
 fetch(url, {
     method: "PUT",
     headers,
+    body,
 }).then(response =&gt; response.json());</code></pre></div>
 
 </span>
@@ -5163,7 +5309,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <form id="form-PUTapi-experts--id-" data-method="PUT"
       data-path="api/experts/{id}"
       data-authed="0"
-      data-hasfiles="0"
+      data-hasfiles="1"
       data-isarraybody="0"
       autocomplete="off"
       onsubmit="event.preventDefault(); executeTryOut('PUTapi-experts--id-', this);">
@@ -5199,10 +5345,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="Content-Type"                data-endpoint="PUTapi-experts--id-"
-               value="application/json"
+               value="multipart/form-data"
                data-component="header">
     <br>
-<p>Example: <code>application/json</code></p>
+<p>Example: <code>multipart/form-data</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
@@ -5229,7 +5375,80 @@ You can check the Dev Tools console for debugging information.</code></pre>
     <br>
 <p>The ID of the expert. Example: <code>consequatur</code></p>
             </div>
-                    </form>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>name</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="name"                data-endpoint="PUTapi-experts--id-"
+               value="consequatur"
+               data-component="body">
+    <br>
+<p>Example: <code>consequatur</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>title</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="title"                data-endpoint="PUTapi-experts--id-"
+               value="consequatur"
+               data-component="body">
+    <br>
+<p>Example: <code>consequatur</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>category</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="category"                data-endpoint="PUTapi-experts--id-"
+               value="consequatur"
+               data-component="body">
+    <br>
+<p>Example: <code>consequatur</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>fee</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="fee"                data-endpoint="PUTapi-experts--id-"
+               value="17"
+               data-component="body">
+    <br>
+<p>Example: <code>17</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>wa_number</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="wa_number"                data-endpoint="PUTapi-experts--id-"
+               value="consequatur"
+               data-component="body">
+    <br>
+<p>Example: <code>consequatur</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>photo</code></b>&nbsp;&nbsp;
+<small>file</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="file" style="display: none"
+                              name="photo"                data-endpoint="PUTapi-experts--id-"
+               value=""
+               data-component="body">
+    <br>
+<p>Must be an image. Must not be greater than 2048 kilobytes. Example: <code>C:\Users\DELL\AppData\Local\Temp\php48F2.tmp</code></p>
+        </div>
+        </form>
 
                     <h2 id="endpoints-DELETEapi-experts--id-">DELETE api/experts/{id}</h2>
 
@@ -5375,7 +5594,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --form "price=17"\
     --form "stock=17"\
     --form "description=Dolores dolorum amet iste laborum eius est dolor."\
-    --form "image=@C:\Users\DELL\AppData\Local\Temp\php6B.tmp" </code></pre></div>
+    --form "image=@C:\Users\DELL\AppData\Local\Temp\php48F3.tmp" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -5548,7 +5767,218 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value=""
                data-component="body">
     <br>
-<p>Ubah jadi 'image' dan batasi tipe file (jpg, png) serta ukuran (max 2MB). Must be an image. Must not be greater than 2048 kilobytes. Example: <code>C:\Users\DELL\AppData\Local\Temp\php6B.tmp</code></p>
+<p>Ubah jadi 'image' dan batasi tipe file (jpg, png) serta ukuran (max 2MB). Must be an image. Must not be greater than 2048 kilobytes. Example: <code>C:\Users\DELL\AppData\Local\Temp\php48F3.tmp</code></p>
+        </div>
+        </form>
+
+                    <h2 id="endpoints-POSTapi-products--id-">POST api/products/{id}</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-POSTapi-products--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "https://nondeprecatively-overdiligent-sonja.ngrok-free.dev/api/products/consequatur" \
+    --header "Content-Type: multipart/form-data" \
+    --header "Accept: application/json" \
+    --form "name=consequatur"\
+    --form "category=consequatur"\
+    --form "price=17"\
+    --form "stock=17"\
+    --form "description=Dolores dolorum amet iste laborum eius est dolor."\
+    --form "image=@C:\Users\DELL\AppData\Local\Temp\php4903.tmp" </code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "https://nondeprecatively-overdiligent-sonja.ngrok-free.dev/api/products/consequatur"
+);
+
+const headers = {
+    "Content-Type": "multipart/form-data",
+    "Accept": "application/json",
+};
+
+const body = new FormData();
+body.append('name', 'consequatur');
+body.append('category', 'consequatur');
+body.append('price', '17');
+body.append('stock', '17');
+body.append('description', 'Dolores dolorum amet iste laborum eius est dolor.');
+body.append('image', document.querySelector('input[name="image"]').files[0]);
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-products--id-">
+</span>
+<span id="execution-results-POSTapi-products--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-products--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-products--id-"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-POSTapi-products--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-products--id-">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-POSTapi-products--id-" data-method="POST"
+      data-path="api/products/{id}"
+      data-authed="0"
+      data-hasfiles="1"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-products--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-products--id-"
+                    onclick="tryItOut('POSTapi-products--id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-products--id-"
+                    onclick="cancelTryOut('POSTapi-products--id-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-products--id-"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/products/{id}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="POSTapi-products--id-"
+               value="multipart/form-data"
+               data-component="header">
+    <br>
+<p>Example: <code>multipart/form-data</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="POSTapi-products--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="id"                data-endpoint="POSTapi-products--id-"
+               value="consequatur"
+               data-component="url">
+    <br>
+<p>The ID of the product. Example: <code>consequatur</code></p>
+            </div>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>name</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="name"                data-endpoint="POSTapi-products--id-"
+               value="consequatur"
+               data-component="body">
+    <br>
+<p>Example: <code>consequatur</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>category</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="category"                data-endpoint="POSTapi-products--id-"
+               value="consequatur"
+               data-component="body">
+    <br>
+<p>Example: <code>consequatur</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>price</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="price"                data-endpoint="POSTapi-products--id-"
+               value="17"
+               data-component="body">
+    <br>
+<p>Example: <code>17</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>stock</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="stock"                data-endpoint="POSTapi-products--id-"
+               value="17"
+               data-component="body">
+    <br>
+<p>Example: <code>17</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>description</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="description"                data-endpoint="POSTapi-products--id-"
+               value="Dolores dolorum amet iste laborum eius est dolor."
+               data-component="body">
+    <br>
+<p>Example: <code>Dolores dolorum amet iste laborum eius est dolor.</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>image</code></b>&nbsp;&nbsp;
+<small>file</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="file" style="display: none"
+                              name="image"                data-endpoint="POSTapi-products--id-"
+               value=""
+               data-component="body">
+    <br>
+<p>Must be an image. Must not be greater than 2048 kilobytes. Example: <code>C:\Users\DELL\AppData\Local\Temp\php4903.tmp</code></p>
         </div>
         </form>
 
@@ -5674,6 +6104,132 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <p>The ID of the product. Example: <code>consequatur</code></p>
             </div>
                     </form>
+
+                    <h2 id="endpoints-GETapi-orders">GET api/orders</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-GETapi-orders">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "https://nondeprecatively-overdiligent-sonja.ngrok-free.dev/api/orders" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "https://nondeprecatively-overdiligent-sonja.ngrok-free.dev/api/orders"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-orders">
+            <blockquote>
+            <p>Example response (401):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+access-control-allow-origin: *
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;Unauthenticated.&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-orders" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-orders"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-orders"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-orders" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-orders">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-GETapi-orders" data-method="GET"
+      data-path="api/orders"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-orders', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-orders"
+                    onclick="tryItOut('GETapi-orders');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-orders"
+                    onclick="cancelTryOut('GETapi-orders');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-orders"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/orders</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-orders"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-orders"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        </form>
 
                     <h2 id="endpoints-PATCHapi-orders--id--status">PATCH api/orders/{id}/status</h2>
 

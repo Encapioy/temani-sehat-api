@@ -314,7 +314,7 @@ endpoints:
         name: birth_date
         description: 'Must be a valid date.'
         required: false
-        example: '2026-01-28T03:35:01'
+        example: '2026-01-28T17:10:11'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -356,7 +356,7 @@ endpoints:
         nullable: true
         deprecated: false
     cleanBodyParameters:
-      birth_date: '2026-01-28T03:35:01'
+      birth_date: '2026-01-28T17:10:11'
       gender: P
       address: consequatur
       phone_number: mqeopfuudtdsu
@@ -566,7 +566,7 @@ endpoints:
       physical_symptoms:
         custom: []
         name: physical_symptoms
-        description: 'Contoh: "Cemas", "Senang".'
+        description: ''
         required: false
         example: consequatur
         type: string
@@ -577,7 +577,7 @@ endpoints:
       mood_score:
         custom: []
         name: mood_score
-        description: 'Contoh: "Pusing", "Nyeri". Must be at least 1. Must not be greater than 5.'
+        description: 'Must be at least 1. Must not be greater than 5.'
         required: true
         example: 3
         type: integer
@@ -588,7 +588,7 @@ endpoints:
       medication_taken:
         custom: []
         name: medication_taken
-        description: 'Skala 1-5.'
+        description: ''
         required: false
         example: true
         type: boolean
@@ -661,6 +661,46 @@ endpoints:
     httpMethods:
       - GET
     uri: api/tracking
+    metadata:
+      custom: []
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      deprecated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - GET
+    uri: api/tracking/weekly
     metadata:
       custom: []
       groupName: Endpoints
@@ -947,7 +987,7 @@ endpoints:
         name: schedule_date
         description: 'Must be a valid date. Must be a date after <code>now</code>.'
         required: true
-        example: '2107-02-26'
+        example: '2107-02-27'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -966,7 +1006,7 @@ endpoints:
         deprecated: false
     cleanBodyParameters:
       expert_id: consequatur
-      schedule_date: '2107-02-26'
+      schedule_date: '2107-02-27'
       complaint: mqeopfuudtdsufvyvddqa
     fileParameters: []
     responses: []
@@ -1832,7 +1872,7 @@ endpoints:
       authenticated: false
       deprecated: false
     headers:
-      Content-Type: application/json
+      Content-Type: multipart/form-data
       Accept: application/json
     urlParameters: []
     cleanUrlParameters: []
@@ -1864,7 +1904,7 @@ endpoints:
       category:
         custom: []
         name: category
-        description: 'Contoh: Sp.GK (Spesialis Gizi).'
+        description: ''
         required: true
         example: consequatur
         type: string
@@ -1875,7 +1915,7 @@ endpoints:
       fee:
         custom: []
         name: fee
-        description: 'Isi: Dokter, Ahli Gizi, Admin, dll.'
+        description: ''
         required: true
         example: 17
         type: integer
@@ -1897,10 +1937,10 @@ endpoints:
       photo:
         custom: []
         name: photo
-        description: 'Format 628xxx.'
+        description: 'Ubah validasi foto jadi file image. Must be an image. Must not be greater than 2048 kilobytes.'
         required: false
-        example: consequatur
-        type: string
+        example: null
+        type: file
         enumValues: []
         exampleWasSpecified: false
         nullable: true
@@ -1911,8 +1951,8 @@ endpoints:
       category: consequatur
       fee: 17
       wa_number: 62vmqe
-      photo: consequatur
-    fileParameters: []
+    fileParameters:
+      photo: null
     responses: []
     responseFields: []
     auth: []
@@ -1935,7 +1975,7 @@ endpoints:
       authenticated: false
       deprecated: false
     headers:
-      Content-Type: application/json
+      Content-Type: multipart/form-data
       Accept: application/json
     urlParameters:
       id:
@@ -1953,9 +1993,81 @@ endpoints:
       id: consequatur
     queryParameters: []
     cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
-    fileParameters: []
+    bodyParameters:
+      name:
+        custom: []
+        name: name
+        description: ''
+        required: false
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      title:
+        custom: []
+        name: title
+        description: ''
+        required: false
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      category:
+        custom: []
+        name: category
+        description: ''
+        required: false
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      fee:
+        custom: []
+        name: fee
+        description: ''
+        required: false
+        example: 17
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      wa_number:
+        custom: []
+        name: wa_number
+        description: ''
+        required: false
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      photo:
+        custom: []
+        name: photo
+        description: 'Must be an image. Must not be greater than 2048 kilobytes.'
+        required: false
+        example: null
+        type: file
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+    cleanBodyParameters:
+      name: consequatur
+      title: consequatur
+      category: consequatur
+      fee: 17
+      wa_number: consequatur
+    fileParameters:
+      photo: null
     responses: []
     responseFields: []
     auth: []
@@ -2111,6 +2223,121 @@ endpoints:
   -
     custom: []
     httpMethods:
+      - POST
+    uri: 'api/products/{id}'
+    metadata:
+      custom: []
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      deprecated: false
+    headers:
+      Content-Type: multipart/form-data
+      Accept: application/json
+    urlParameters:
+      id:
+        custom: []
+        name: id
+        description: 'The ID of the product.'
+        required: true
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      id: consequatur
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      name:
+        custom: []
+        name: name
+        description: ''
+        required: false
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      category:
+        custom: []
+        name: category
+        description: ''
+        required: false
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      price:
+        custom: []
+        name: price
+        description: ''
+        required: false
+        example: 17
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      stock:
+        custom: []
+        name: stock
+        description: ''
+        required: false
+        example: 17
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      description:
+        custom: []
+        name: description
+        description: ''
+        required: false
+        example: 'Dolores dolorum amet iste laborum eius est dolor.'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      image:
+        custom: []
+        name: image
+        description: 'Must be an image. Must not be greater than 2048 kilobytes.'
+        required: false
+        example: null
+        type: file
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+    cleanBodyParameters:
+      name: consequatur
+      category: consequatur
+      price: 17
+      stock: 17
+      description: 'Dolores dolorum amet iste laborum eius est dolor.'
+    fileParameters:
+      image: null
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
       - DELETE
     uri: 'api/products/{id}'
     metadata:
@@ -2146,6 +2373,46 @@ endpoints:
     cleanBodyParameters: []
     fileParameters: []
     responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - GET
+    uri: api/orders
+    metadata:
+      custom: []
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      deprecated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
     responseFields: []
     auth: []
     controller: null
